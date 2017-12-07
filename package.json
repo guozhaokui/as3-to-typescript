@@ -1,42 +1,88 @@
 {
-  "name": "as3-to-typescript",
-  "version": "0.1.1",
-  "description": "convert as3 code base to typescript",
-  "main": "index.js",
+  "_from": "as3-to-ts",
+  "_id": "as3-to-ts@0.3.3",
+  "_inBundle": false,
+  "_integrity": "sha1-mttQrRvfFYPZJN/LqsdGpUNdc0U=",
+  "_location": "/as3-to-ts",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "as3-to-ts",
+    "name": "as3-to-ts",
+    "escapedName": "as3-to-ts",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "https://registry.npmjs.org/as3-to-ts/-/as3-to-ts-0.3.3.tgz",
+  "_shasum": "9adb50ad1bdf1583d924dfcbaac746a5435d7345",
+  "_spec": "as3-to-ts",
+  "_where": "f:\\work\\as3-to-typescript\\bin",
+  "author": {
+    "name": "François de Campredon",
+    "email": "francois.de.campredon@gmail.com"
+  },
   "bin": {
-    "as3-to-typescript": "./bin/as3-to-typescript"
+    "as3-to-ts": "./bin/as3-to-typescript"
   },
-  "scripts": {
-    "test": "node test/runner generate && node test/runner compare",
-    "generate": "node test/runner generate",
-    "accept": "node test/runner accept",
-    "compile": "tsc --module 'commonjs' --outDir lib --target es5 src/declarations/node.d.ts src/main/parser.ts src/main/emitter.ts src/main/command.ts",
-    "watch": "tsc --module 'commonjs' --outDir lib --target es5 --watch src/declarations/node.d.ts src/main/parser.ts src/main/emitter.ts src/main/command.ts"
+  "bugs": {
+    "url": "https://github.com/GoodgameStudios/as3-to-ts/issues"
   },
+  "bundleDependencies": false,
+  "contributors": [
+    {
+      "name": "Endel Dreyer"
+    },
+    {
+      "name": "Simon Buchan"
+    }
+  ],
+  "dependencies": {
+    "fs-extra": "^0.24.0",
+    "minimist": "^1.2.0",
+    "object-assign": "^4.0.1",
+    "readline-sync": "^1.4.4",
+    "sax": "~0.6.0"
+  },
+  "deprecated": false,
+  "description": "Tool to help porting ActionScript 3.0 code to TypeScript.",
+  "devDependencies": {
+    "diff": "^2.2.1",
+    "source-map-support": "^0.3.2",
+    "tslint": "^2.5.1",
+    "typescript": "^1.5.3",
+    "typings": "^1.3.2"
+  },
+  "homepage": "https://github.com/GoodgameStudios/as3-to-ts#readme",
   "keywords": [
     "actionscript",
     "as3",
     "typescript",
     "compiler"
   ],
+  "license": "Apache-2.0",
+  "main": "index.js",
+  "name": "as3-to-ts",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
   "repository": {
     "type": "git",
-    "url": "git://github.com/fdecampredon/as3-to-typescript.git"
+    "url": "git://github.com/GoodgameStudios/as3-to-ts.git"
   },
-  "bugs": {
-    "url": "https://github.com/fdecampredon/as3-to-typescript/issues"
+  "scripts": {
+    "accept": "node -r source-map-support/register test/runner accept",
+    "compare": "node -r source-map-support/register test/runner compare || echo Comparison failed",
+    "compile": "tsc --project src",
+    "generate": "node -r source-map-support/register test/runner generate",
+    "install": "typings install && npm run compile",
+    "pretest": "npm run -s compile",
+    "test": "npm run -s generate && npm run -s compare",
+    "watch": "tsc --project src --watch"
   },
-  "author": "François de Campredon <francois.de.campredon@gmail.com>",
-  "licenses" : {
-    "type": "Apache",
-    "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
-  },
-  "dependencies": {
-    "fs-extended": "^0.2.0",
-    "rimraf": "^2.2.8",
-    "sax": "~0.6.0"
-  },
-  "devDependencies": {
-    "typescript": "~1.3.0"
-  }
+  "version": "0.3.3"
 }
